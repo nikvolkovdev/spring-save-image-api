@@ -1,0 +1,31 @@
+#spring.application.name=contactapi
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdatabase
+    username: postgres
+    password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLInnoDBDialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mvc:
+    async:
+      request-timeout: 3600000
+server:
+  port: 8080
+  error:
+    path: /user/error
+    whitelabel:
+      enabled: false
